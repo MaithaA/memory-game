@@ -13,8 +13,8 @@ let symbols = ['bicycle', 'bicycle', 'leaf', 'leaf', 'cube', 'cube', 'anchor', '
   second = 0,
   $timer = $('.timer'),
   totalCard = symbols.length / 2,
-  rank3stars = 10,
-  rank2stars = 16,
+  rank3stars = 14,
+  rank2stars = 17,
   rank1stars = 20;
 
 
