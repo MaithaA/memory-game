@@ -5,17 +5,17 @@ let symbols = ['bicycle', 'bicycle', 'leaf', 'leaf', 'cube', 'cube', 'anchor', '
   moves = 0,
   $deck = $('.deck'),
   $scorePanel = $('#score-panel'),
-  $moveNum = $('.moves'),
-  $ratingStars = $('.fa-star'),
+  $movesNumber = $('.moves'),
+  $stars = $('.fa-star'),
   $restart = $('.restart'),
   delay = 400,
   currentTimer,
   second = 0,
   $timer = $('.timer'),
   totalCard = symbols.length / 2,
-  rank3stars = 14,
-  rank2stars = 17,
-  rank1stars = 20;
+  rank3 = 14,
+  rank2 = 17,
+  rank1 = 20;
 
 
 
@@ -31,8 +31,8 @@ function initGame() {
   $deck.empty();
   match = 0;
   moves = 0;
-  $moveNum.text('0');
-  $ratingStars.removeClass('fa-star-o').addClass('fa-star');
+  $movesNumber.text('0');
+  $stars.removeClass('fa-star-o').addClass('fa-star');
   for (var i = 0; i < cards.length; i++) {
     $deck.append($('<li class="card"><i class="fa fa-' + cards[i] + '"></i></li>'))
   }
@@ -61,14 +61,14 @@ function shuffle(array) {
 // Set Rating and final Score
 function setRating(moves) {
   var rating = 3;
-  if (moves > rank3stars && moves < rank2stars) {
-    $ratingStars.eq(2).removeClass('fa-star').addClass('fa-star-o');
+  if (moves > rank3 && moves < rank2) {
+    $stars.eq(2).removeClass('fa-star').addClass('fa-star-o');
     rating = 2;
-  } else if (moves > rank2stars && moves < rank1stars) {
-    $ratingStars.eq(1).removeClass('fa-star').addClass('fa-star-o');
+  } else if (moves > rank2 && moves < rank1) {
+    $stars.eq(1).removeClass('fa-star').addClass('fa-star-o');
     rating = 1;
-  } else if (moves > rank1stars) {
-    $ratingStars.eq(0).removeClass('fa-star').addClass('fa-star-o');
+  } else if (moves > rank1) {
+    $stars.eq(0).removeClass('fa-star').addClass('fa-star-o');
     rating = 0;
   }
   return { score: rating };
