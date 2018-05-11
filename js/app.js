@@ -3,20 +3,19 @@ let symbols = ['bicycle', 'bicycle', 'leaf', 'leaf', 'cube', 'cube', 'anchor', '
   opened = [],
   match = 0,
   moves = 0,
-  totalCard = symbols.length / 2,
-  delay = 400,
-  currentTimer,
-  second = 0,
-  rank3 = 14,
-  rank2 = 17,
-  rank1 = 20,
   $deck = $('.deck'),
   $scorePanel = $('#score-panel'),
   $movesNumber = $('.moves'),
   $stars = $('.fa-star'),
   $restart = $('.restart'),
-  $timer = $('.timer');
-
+  delay = 400,
+  currentTimer,
+  second = 0,
+  $timer = $('.timer'),
+  totalCard = symbols.length / 2,
+  rank3 = 14,
+  rank2 = 17,
+  rank1 = 20;
 
 
 
