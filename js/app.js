@@ -10,7 +10,6 @@ let symbols = ['bicycle', 'bicycle', 'leaf', 'leaf', 'cube', 'cube', 'anchor', '
   rank3 = 14,
   rank2 = 17,
   rank1 = 20,
-
   $deck = $('.deck'),
   $scorePanel = $('#score-panel'),
   $movesNumber = $('.moves'),
