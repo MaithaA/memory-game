@@ -34,30 +34,7 @@ function shuffle(array) {
   }
 
   return array;
-}// Initial Game
-/*
- * Display the cards on the page
- *   - shuffle the list of cards using the provided "shuffle" method below
- *   - loop through each card and create its HTML
- *   - add each card's HTML to the page
- */
-function initGame() {
-  var cards = shuffle(symbols);
-  $deck.empty();
-  match = 0;
-  moves = 0;
-  $movesNumber.text('0');
-  $stars.removeClass('fa-star-o').addClass('fa-star');
-  for (var i = 0; i < cards.length; i++) {
-    $deck.append($('<li class="card"><i class="fa fa-' + cards[i] + '"></i></li>'))
-  }
-  addCardListener();
-
-  resetTimer(currentTimer);
-  second = 0;
-  $timer.text(`${second}`)
-  initTime();
-};
+}
 
 // Initial Game
 /*
