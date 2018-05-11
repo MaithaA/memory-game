@@ -7,3 +7,6 @@ with different symbols on one side. The cards are arranged randomly on the grid 
 3 stars = 14 moves or less
 2 stars = 17 moves or less
 1 star = 20 moves or more
+# Dependencies
+Bootstrap 4 
+
