@@ -1,26 +1,21 @@
-// a list that holds all of the cards
 let symbols = ['bicycle', 'bicycle', 'leaf', 'leaf', 'cube', 'cube', 'anchor', 'anchor', 'paper-plane-o', 'paper-plane-o', 'bolt', 'bolt', 'bomb', 'bomb', 'diamond', 'diamond'],
   opened = [],
   match = 0,
   moves = 0,
   $deck = $('.deck'),
   $scorePanel = $('#score-panel'),
-  $movesNumber = $('.moves'),
-  $stars = $('.fa-star'),
+  $moveNum = $('.moves'),
+  $ratingStars = $('.fa-star'),
   $restart = $('.restart'),
   delay = 400,
   currentTimer,
   second = 0,
   $timer = $('.timer'),
   totalCard = symbols.length / 2,
-  rank3 = 14,
-  rank2 = 17,
-  rank1 = 20;
+  rank3stars = 10,
+  rank2stars = 16,
+  rank1stars = 20;
 
-
-
-
-// Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
   var currentIndex = array.length, temporaryValue, randomIndex;
 
@@ -36,19 +31,13 @@ function shuffle(array) {
 }
 
 // Initial Game
-/*
- * Display the cards on the page
- *   - shuffle the list of cards using the provided "shuffle" method below
- *   - loop through each card and create its HTML
- *   - add each card's HTML to the page
- */
 function initGame() {
   var cards = shuffle(symbols);
   $deck.empty();
   match = 0;
   moves = 0;
-  $movesNumber.text('0');
-  $stars.removeClass('fa-star-o').addClass('fa-star');
+  $moveNum.text('0');
+  $ratingStars.removeClass('fa-star-o').addClass('fa-star');
   for (var i = 0; i < cards.length; i++) {
     $deck.append($('<li class="card"><i class="fa fa-' + cards[i] + '"></i></li>'))
   }
@@ -63,14 +52,14 @@ function initGame() {
 // Set Rating and final Score
 function setRating(moves) {
   var rating = 3;
-  if (moves > rank3 && moves < rank2) {
-    $stars.eq(2).removeClass('fa-star').addClass('fa-star-o');
+  if (moves > rank3stars && moves < rank2stars) {
+    $ratingStars.eq(2).removeClass('fa-star').addClass('fa-star-o');
     rating = 2;
-  } else if (moves > rank2 && moves < rank1) {
-    $stars.eq(1).removeClass('fa-star').addClass('fa-star-o');
+  } else if (moves > rank2stars && moves < rank1stars) {
+    $ratingStars.eq(1).removeClass('fa-star').addClass('fa-star-o');
     rating = 1;
-  } else if (moves > rank1) {
-    $stars.eq(0).removeClass('fa-star').addClass('fa-star-o');
+  } else if (moves > rank1stars) {
+    $ratingStars.eq(0).removeClass('fa-star').addClass('fa-star-o');
     rating = 0;
   }
   return { score: rating };
@@ -111,17 +100,6 @@ $restart.bind('click', function () {
     }
   })
 });
-
-/*
- * set up the event listener for a card. If a card is clicked:
- *  - display the card's symbol (put this functionality in another function that you call from this one)
- *  - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
- *  - if the list already has another card, check to see if the two cards match
- *    + if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one)
- *    + if the cards do not match, remove the cards from the list and hide the card's symbol (put this functionality in another function that you call from this one)
- *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
- *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
- */
 
 var addCardListener = function () {
 
