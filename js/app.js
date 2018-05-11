@@ -19,6 +19,46 @@ let symbols = ['bicycle', 'bicycle', 'leaf', 'leaf', 'cube', 'cube', 'anchor', '
 
 
 
+
+
+// Shuffle function from http://stackoverflow.com/a/2450976
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  while (0 !== currentIndex) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}// Initial Game
+/*
+ * Display the cards on the page
+ *   - shuffle the list of cards using the provided "shuffle" method below
+ *   - loop through each card and create its HTML
+ *   - add each card's HTML to the page
+ */
+function initGame() {
+  var cards = shuffle(symbols);
+  $deck.empty();
+  match = 0;
+  moves = 0;
+  $movesNumber.text('0');
+  $stars.removeClass('fa-star-o').addClass('fa-star');
+  for (var i = 0; i < cards.length; i++) {
+    $deck.append($('<li class="card"><i class="fa fa-' + cards[i] + '"></i></li>'))
+  }
+  addCardListener();
+
+  resetTimer(currentTimer);
+  second = 0;
+  $timer.text(`${second}`)
+  initTime();
+};
+
 // Initial Game
 /*
  * Display the cards on the page
@@ -44,20 +84,6 @@ function initGame() {
   initTime();
 };
 
-// Shuffle function from http://stackoverflow.com/a/2450976
-function shuffle(array) {
-  var currentIndex = array.length, temporaryValue, randomIndex;
-
-  while (0 !== currentIndex) {
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex -= 1;
-    temporaryValue = array[currentIndex];
-    array[currentIndex] = array[randomIndex];
-    array[randomIndex] = temporaryValue;
-  }
-
-  return array;
-}
 // Set Rating and final Score
 function setRating(moves) {
   var rating = 3;
