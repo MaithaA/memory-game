@@ -9,14 +9,14 @@ let symbols = ['bicycle', 'bicycle', 'leaf', 'leaf', 'cube', 'cube', 'anchor', '
   second = 0,
   rank3 = 14,
   rank2 = 17,
-  rank1 = 20;
+  rank1 = 20,
 
   $deck = $('.deck'),
   $scorePanel = $('#score-panel'),
   $movesNumber = $('.moves'),
   $stars = $('.fa-star'),
   $restart = $('.restart'),
-  $timer = $('.timer'),
+  $timer = $('.timer');
 
 
 
